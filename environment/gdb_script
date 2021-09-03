@@ -1,0 +1,10 @@
+#!/bin/bash
+#stty intr ^]
+
+path_n = $1
+
+gdb-pwndbg \
+    -ex "add-auto-load-safe-path $(pwd)" \
+    -ex "add-file-path $path_n "\
+    -ex 'target remote localhost:1234' \
+ 
